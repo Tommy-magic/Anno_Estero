@@ -1,0 +1,147 @@
+/* Style.css - Navbar and Main Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    max-width: 100%;
+}
+
+/* Hamburger Button */
+#hamburger {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+#hamburger:hover {
+    color: #0066cc;
+}
+
+/* Menu List */
+#menu-list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #fff;
+    list-style: none;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+#menu-list li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#menu-list li:last-child {
+    border-bottom: none;
+}
+
+#menu-list a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+#menu-list a:hover {
+    background-color: #f0f0f0;
+    color: #0066cc;
+    padding-left: 2rem;
+}
+
+/* Hidden Menu */
+.nascosto {
+    display: none !important;
+}
+
+/* Clock Icon */
+.clock-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.clock-icon:hover {
+    background-color: #f0f0f0;
+    color: #0066cc;
+}
+
+.clock-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.main-content h1 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.main-content p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 1rem;
+        position: relative;
+    }
+
+    #menu-list {
+        max-width: 100%;
+    }
+
+    .main-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .main-content h1 {
+        font-size: 1.5rem;
+    }
+}
