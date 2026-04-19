@@ -1,0 +1,265 @@
+/* Post-it Widget Styles */
+.postit-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    width: 100%;
+}
+
+.postit-sec-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.postit-sec-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.postit-add-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postit-add-btn:hover {
+    transform: scale(1.1);
+}
+
+.postit-container {
+    position: relative;
+}
+
+.postit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    min-height: 100px;
+}
+
+.postit-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+.postit-note {
+    background: #FFF176;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transform: rotate(-1deg);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.postit-note:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.postit-note.yellow { background: #FFF176; }
+.postit-note.green { background: #C8E6C9; }
+.postit-note.pink { background: #F8BBD0; }
+.postit-note.blue { background: #BBDEFB; }
+.postit-note.orange { background: #FFE0B2; }
+
+.postit-note-content {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+    word-wrap: break-word;
+    margin-bottom: 0.5rem;
+}
+
+.postit-note-date {
+    font-size: 0.7rem;
+    color: #666;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.postit-note-delete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(220, 53, 69, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.postit-note:hover .postit-note-delete {
+    opacity: 1;
+}
+
+/* Modal Overlay */
+.postit-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.postit-overlay.active {
+    display: flex;
+}
+
+.postit-modal {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.postit-modal-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#postit-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#postit-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.postit-color-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.postit-color-lbl {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.postit-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.postit-dot.sel {
+    border-color: #333;
+    transform: scale(1.2);
+}
+
+.postit-modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.postit-btn-cancel,
+.postit-btn-save {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.postit-btn-cancel {
+    background: #f8f9fa;
+    color: #666;
+}
+
+.postit-btn-cancel:hover {
+    background: #e9ecef;
+}
+
+.postit-btn-save {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.postit-btn-save:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .postit-section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .postit-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .postit-note {
+        min-height: 100px;
+        padding: 0.75rem;
+    }
+
+    .postit-modal {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

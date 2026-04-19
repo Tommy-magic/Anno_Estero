@@ -1,0 +1,29 @@
+
+<!-- TO DO LIST HTML -->
+<div class="todo">
+    <!-- divisione in tre sezioni del widget todo-->
+    <!-- parte 1: header, titolo 'to do list', menu a tendina con le tre opzioni di filtraggio. -->
+    <div class="todo-header">
+        <span class="todo-title">TO DO LIST</span>
+        <div class="filter-menu">
+            <button class="filter-btn active" data-f="all">Tutte</button>
+            <button class="filter-btn" data-f="open">Da fare</button>
+            <button class="filter-btn" data-f="done">Completate</button>
+        </div>
+    </div>
+    <!-- parte 2: banner testuale per aggiungere la nuova attività, button aggiungi -->
+    <div class="input-banner">
+        <input type="text" id="new-task" placeholder="Aggiungi una nuova attività…" />
+        <button id="add-btn">+ Aggiungi</button>
+    </div>
+
+    <!-- parte 3: elenco delle attività, con checkbox per completare, testo dell'attività, e bottone per eliminare -->
+    <div class="task-list" id="task-list"></div>
+    
+    <!-- parte 4: footer con opzione 'elimina completate'-->
+    <div class="todo-footer">
+        <span id="tasks-counter">0 attività rimanenti</span>
+        <button id="clear-completed">Elimina completate</button>
+    </div>
+    
+</div>

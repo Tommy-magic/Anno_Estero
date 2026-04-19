@@ -1,5 +1,9 @@
 /* Style.css - Navbar and Main Styles */
+:root{
+    --navbar-bg: #4b1d76; 
+    --colore-bordo: #1e293b;
 
+}
 * {
     margin: 0;
     padding: 0;
@@ -13,11 +17,14 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    background-color: var(--navbar-bg);
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--colore-bordo);
 }
 
 .navbar-container {
@@ -126,6 +133,107 @@ body {
     font-size: 1rem;
 }
 
+/* Slide Styles */
+
+section[class^="slide-"] {
+    display: none;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+}
+
+section[class^="slide-"].active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-home {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.slide-obiettivi {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.slide-missioni {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.slide-video {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.slide-foto {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+}
+
+.slide-momenti {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: black;
+}
+
+.slide-oggi-voglio-dirti {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: black;
+}
+
+.slide-ricordi {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: black;
+}
+
+.slide-ti-sto-pensando-con {
+    background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+    color: white;
+}
+
+.slide-playlist {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: black;
+}
+
+section[class^="slide-"] h1,
+section[class^="slide-"] h2 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+section[class^="slide-"] p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+
+section[class^="widget"] {
+    /*rettangolo bianco*/
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin: 2rem auto;
+    width: 500px;
+    height: 50rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar-container {
@@ -143,5 +251,18 @@ body {
 
     .main-content h1 {
         font-size: 1.5rem;
+    }
+
+    .todolist {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    .filter-row {
+        flex-direction: column;
     }
 }

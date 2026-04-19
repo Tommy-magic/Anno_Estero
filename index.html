@@ -5,25 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anno Estero</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="postit.css">
 </head>
 <body> 
 
     <!-- Navbar --> 
     <nav class="navbar">
-        <div class="navbar-container">
+        <div class="navbar-container" id="navbar">
             <!-- Hamburger Menu -->
                 <button id="hamburger">☰</button>
                 <ul id="menu-list" class="nascosto">
-                    <li><a href="#" class="menu-link">Home</a></li>
-                    <li><a href="#">Obiettivi</a></li>
-                    <li><a href="#">Missioni</a></li>
-                    <li><a href="#">Video</a></li>
-                    <li><a href="#">Foto</a></li>
-                    <li><a href="#">Momenti</a></li>
-                    <li><a href="#">Oggi Voglio Dirti</a></li>
-                    <li><a href="#">Ricordi</a></li>
-                    <li><a href="#">Ti sto pensando con</a></li>
-                    <li><a href="#">Playlist</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#obiettivi">Obiettivi</a></li>
+                    <li><a href="#missioni">Missioni</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#foto">Foto</a></li>
+                    <li><a href="#momenti">Momenti</a></li>
+                    <li><a href="#oggi-voglio-dirti">Oggi Voglio Dirti</a></li>
+                    <li><a href="#ricordi">Ricordi</a></li>
+                    <li><a href="#ti-sto-pensando-con">Ti sto pensando con</a></li>
+                    <li><a href="#playlist">Playlist</a></li>
                 </ul>
 
             <!-- Timer/Clock Icon -->
@@ -32,22 +33,90 @@
             </div>
         </div>
     </nav>
-
+    <!-- SLIDE -->
     <!-- Home -->
-    <section class="home">
+    <section class="slide-home" id="home">
         <div class="home-content">
             <h1>Anno Estero</h1>
             <h2>Bentornato!</h2>
             <p>Stay connected with your partner during your year abroad</p>
+
+            <!-- Widget: To Do List -->
+            <div class="widget" id="todo"></div>
+
+            <!-- Widget: Post-it / Promemoria -->
+            <div class="widget" id="postit"></div>
+
+            <!-- Widget: Banner obiettivi -->
+            <div class="widget" id="banner"></div>
+
+            <!-- Widget: Missione del giorno -->
+            <div class="widget" id="missione"></div>
+
+            <!-- Widget: Immagine del giorno -->
+            <div class="widget" id="immagine-del-giorno"></div>
         </div>
-        <!-- TODO: Add widgets -->
-        <!-- - To do list Widget-->
-        <!-- - Cose da ricordarmi widget (casella di testo con puntina (post it))-->
-        <!-- - Banner Obiettivo della settimana -->
-        <!-- - Banner Immagine del Giorno -->
-        <!-- - Missione con checkbox -->
     </section>
 
+    <!-- Obiettivi -->
+    <section class="slide-obiettivi" id="obiettivi">
+        <h2>Obiettivi</h2>
+        <p>Set and track your goals for the year abroad</p>
+    </section>
+
+    <!-- Missioni -->
+    <section class="slide-missioni" id="missioni">
+        <h2>Missioni</h2>
+        <p>Complete fun missions together to stay connected</p> 
+    </section>
+
+    <!-- Video -->
+    <section class="slide-video" id="video">
+        <h2>Video</h2>
+        <p>Share and watch videos together</p>
+    </section>
+
+    <!-- Foto -->
+    <section class="slide-foto" id="foto">
+        <h2>Foto</h2>
+        <p>Share and view photos together</p>
+    </section>
+    
+    <!-- Momenti -->
+    <section class="slide-momenti" id="momenti">
+        <h2>Momenti</h2>
+        <p>Share and view special moments together</p>
+    </section>
+
+    <!-- Oggi Voglio Dirti -->
+    <section class="slide-oggi-voglio-dirti" id="oggi-voglio-dirti">
+        <h2>Oggi Voglio Dirti</h2>
+        <p>Share daily thoughts and feelings with each other</p>
+    </section>
+
+    <!-- Ricordi -->
+    <section class="slide-ricordi" id="ricordi">
+        <h2>Ricordi</h2>
+        <p>Store and revisit your shared memories</p>
+    </section>
+
+    <!-- Ti sto pensando con -->
+    <section class="slide-ti-sto-pensando-con" id="ti-sto-pensando-con">
+        <h2>Ti sto pensando con</h2>
+        <p>Share what you're thinking about each other</p>
+    </section>
+
+    <!-- Playlist -->
+    <section class="slide-playlist" id="playlist">
+        <h2>Playlist</h2>
+        <p>Create and share playlists together</p>
+    </section>
+
+
+
     <script src="app.js"></script>
+    <script src="postit.js"></script>
 </body>
 </html>
+
+

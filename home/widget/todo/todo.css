@@ -1,0 +1,207 @@
+/*to do list css*/
+.todo-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 1rem;
+    z-index: 1001;
+}
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.todo-header h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+.todo-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.todo-header button:hover {
+    color: #0066cc;
+}
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.todo-list li:last-child {
+    border-bottom: none;
+}   
+
+.todo-list li .delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.todo-list li .delete-btn:hover {
+    color: #ff0000;
+}
+.todo-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+.todo-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+.todo-add-btn {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.todo-add-btn:hover {
+    background-color: #556cd6;
+}
+
+.todo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+.todo-footer button {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.todo-footer button:hover {
+    color: #0066cc;
+}
+.todo-footer .clear-btn {
+    color: #ff0000;
+}
+.todo-footer .clear-btn:hover {
+    color: #cc0000;
+}
+.todo-footer .count {
+    font-size: 0.9rem;
+    color: #666;
+}
+.todo-footer .count span {
+    font-weight: 600;
+    color: #333;
+}   
+.todo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+}
+.todo-modal-content {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+.todo-modal-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+.todo-modal-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+.todo-modal-content button {
+    padding: 0.5rem 1rem;
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.todo-modal-content button:hover {
+    background-color: #556cd6;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .todo-container {
+        width: 90%;
+        right: 5%;
+        top: 10px;
+    }
+    .todo-header h2 {
+        font-size: 1rem;
+    }
+    .todo-header button {
+        font-size: 1.2rem;
+    }
+    .todo-list li {
+        padding: 0.25rem 0;
+    }
+    .todo-list li .delete-btn {
+        font-size: 1rem;
+    }
+    .todo-input {
+        font-size: 0.9rem;
+    }
+    .todo-add-btn {
+        font-size: 0.9rem;
+    }
+    .todo-footer button {
+        font-size: 0.8rem;
+    }
+    .todo-footer .count {
+        font-size: 0.8rem;
+    }
+    .todo-modal-content {
+        width: 95%;
+    }
+    .todo-modal-content h3 {
+        font-size: 1rem;
+    }
+    .todo-modal-content p {
+        font-size: 0.9rem;
+    }
+    .todo-modal-content button {
+        font-size: 0.9rem;
+    }
+}
