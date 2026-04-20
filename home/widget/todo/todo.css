@@ -20,10 +20,18 @@
     font-size: 1.2rem;
     color: #333;
 }
+.todo-title {
+    font-size: 1.5rem;
+    color: var(--corallo);
+    /*padding-bottom: 1rem;*/
+    font-weight: 700;
+    padding-right: 1rem;
+}
+
 .todo-header button {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease;

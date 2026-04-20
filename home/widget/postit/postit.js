@@ -111,37 +111,39 @@ function renderPostits() {
     const grid = document.getElementById('postit-grid');
     const empty = document.getElementById('postit-empty');
 
-    // Clear grid
-    grid.innerHTML = '';
+    // Remove all postit notes
+    const notes = grid.querySelectorAll('.postit-note');
+    notes.forEach(note => note.remove());
 
     if (postits.length === 0) {
-        grid.appendChild(empty);
-        return;
-    }
+        empty.style.display = 'block';
+    } else {
+        empty.style.display = 'none';
 
-    // Sort by creation date (newest first)
-    const sortedPostits = [...postits].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        // Sort by creation date (newest first)
+        const sortedPostits = [...postits].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-    sortedPostits.forEach(postit => {
-        const postitElement = document.createElement('div');
-        postitElement.className = `postit-note ${postit.color}`;
+        sortedPostits.forEach(postit => {
+            const postitElement = document.createElement('div');
+            postitElement.className = `postit-note ${postit.color}`;
 
-        const date = new Date(postit.createdAt);
-        const formattedDate = date.toLocaleDateString('it-IT', {
-            day: '2-digit',
-            month: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit'
+            const date = new Date(postit.createdAt);
+            const formattedDate = date.toLocaleDateString('it-IT', {
+                day: '2-digit',
+                month: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            postitElement.innerHTML = `
+                <div class="postit-note-content">${postit.text}</div>
+                <div class="postit-note-date">${formattedDate}</div>
+                <button class="postit-note-delete" onclick="deletePostit(${postit.id})" title="Elimina nota">×</button>
+            `;
+
+            grid.appendChild(postitElement);
         });
-
-        postitElement.innerHTML = `
-            <div class="postit-note-content">${postit.text}</div>
-            <div class="postit-note-date">${formattedDate}</div>
-            <button class="postit-note-delete" onclick="deletePostit(${postit.id})" title="Elimina nota">×</button>
-        `;
-
-        grid.appendChild(postitElement);
-    });
+    }
 }
 
 // Initialize when DOM is loaded

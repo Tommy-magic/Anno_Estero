@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anno Estero</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="postit.css">
+    <link rel="stylesheet" href="home/widget/postit/postit.css">
+    <link rel="stylesheet" href="home/widget/todo/todo.css">
+    <link rel="stylesheet" href="home/widget/clock/count.css">
 </head>
 <body> 
 
@@ -27,9 +29,59 @@
                     <li><a href="#playlist">Playlist</a></li>
                 </ul>
 
-            <!-- Timer/Clock Icon -->
-            <div class="clock-icon" id="clockIcon">
+            <!-- Timer/Clock Icon Button -->
+            <button class="clock-icon" id="clockIcon" aria-label="Mostra countdown">
                 <img src="icons/clock.svg" alt="Icona orologio">
+            </button>
+
+            <!-- Countdown Popup -->
+            <div class="countdown-popup" id="countdown-popup" style="display: none;">
+                <div class="cd-card" role="region" aria-label="Conto alla rovescia per il Ritorno">
+                    <!-- HEADER -->
+                    <header class="cd-header">
+                        <h1 class="cd-title">Ritorno</h1>
+                        <span class="cd-dot" aria-hidden="true"></span>
+                    </header>
+                    <!-- COUNTDOWN -->
+                    <div class="cd-grid" aria-live="polite" aria-atomic="true">
+                        <div class="cd-unit">
+                            <span class="cd-num" id="cd-giorni">---</span>
+                            <span class="cd-lbl">Giorni</span>
+                        </div>
+                        <div class="cd-unit">
+                            <span class="cd-num" id="cd-ore">--</span>
+                            <span class="cd-lbl">Ore</span>
+                        </div>
+                        <div class="cd-unit">
+                            <span class="cd-num" id="cd-min">--</span>
+                            <span class="cd-lbl">Minuti</span>
+                        </div>
+                        <div class="cd-unit">
+                            <span class="cd-num" id="cd-sec">--</span>
+                            <span class="cd-lbl">Secondi</span>
+                        </div>
+                    </div>
+                    <!-- FOOTER -->
+                    <footer class="cd-footer">
+                        <!-- Data target + label -->
+                        <div class="cd-tempo">
+                            <span class="cd-tempo-tag">Tempo rimanente</span>
+                            <span class="cd-tempo-date" id="cd-subtitle"></span>
+                        </div>
+                        <!-- Switcher fuso orario -->
+                        <div class="cd-tz-wrap">
+                            <button class="cd-tz-btn" id="cd-tz-btn" aria-haspopup="listbox" aria-label="Seleziona fuso orario">
+                                <span class="cd-tz-flag" id="cd-tz-flag">🇮🇹</span>
+                                <span class="cd-tz-name" id="cd-tz-name">Italia</span>
+                                <span class="cd-tz-arrow" aria-hidden="true">▲</span>
+                            </button>
+                            <!-- Dropdown -->
+                            <div class="cd-tz-menu" id="cd-tz-menu" role="listbox" aria-label="Fusi orari disponibili">
+                                <!-- opzioni generate dinamicamente da script.js (CONFIG.fusuOrari) -->
+                            </div>
+                        </div>
+                    </footer>
+                </div><!-- /.cd-card -->
             </div>
         </div>
     </nav>
@@ -37,24 +89,77 @@
     <!-- Home -->
     <section class="slide-home" id="home">
         <div class="home-content">
-            <h1>Anno Estero</h1>
-            <h2>Bentornato!</h2>
-            <p>Stay connected with your partner during your year abroad</p>
+
+            <!-- Titolo -->
+            <h1 class="home-title">Anno Estero</h1>
+
+            <!-- Giorno (aggiornato dinamicamente via JS) -->
+            <p class="home-day" id="current-day"></p>
 
             <!-- Widget: To Do List -->
-            <div class="widget" id="todo"></div>
+            <div class="widget" id="todo-widget">
+                <div class="todo-header">
+                    <span class="todo-title">TO DO LIST</span>
+                    <div class="filter-menu">
+                        <button class="filter-btn active" data-f="all">Tutte</button>
+                        <button class="filter-btn" data-f="open">Da fare</button>
+                        <button class="filter-btn" data-f="done">Completate</button>
+                    </div>
+                </div>
+                <div class="input-banner">
+                    <input type="text" id="new-task" placeholder="Aggiungi una nuova attività…" />
+                    <button id="add-btn">+ Aggiungi</button>
+                </div>
+                <div class="task-list" id="task-list"></div>
+                <div class="todo-footer">
+                    <span id="b-open">0 da fare</span>
+                    <span id="b-done">0 fatte</span>
+                    <button id="clear-completed">Elimina completate</button>
+                </div>
+            </div>
 
             <!-- Widget: Post-it / Promemoria -->
-            <div class="widget" id="postit"></div>
+            <div class="widget postit-section" id="postit-widget">
+                <div class="postit-sec-header">
+                    <span class="postit-sec-title">Post-it</span>
+                    <button class="postit-add-btn" id="postit-open">+</button>
+                </div>
+                <div class="postit-container">
+                    <div class="postit-grid" id="postit-grid">
+                        <div class="postit-empty" id="postit-empty">Nessuna nota. Aggiungi il tuo primo post-it!</div>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Widget: Banner obiettivi -->
-            <div class="widget" id="banner"></div>
+            <!-- Modal Post-it -->
+            <div class="postit-overlay" id="postit-overlay">
+                <div class="postit-modal">
+                    <div class="postit-modal-title">Nuova nota</div>
+                    <textarea id="postit-textarea" placeholder="Scrivi la tua nota..."></textarea>
+                    <div class="postit-color-row">
+                        <span class="postit-color-lbl">Colore:</span>
+                        <div class="postit-dot yellow sel" data-color="yellow" style="background:#FFF176"></div>
+                        <div class="postit-dot green" data-color="green" style="background:#C8E6C9"></div>
+                        <div class="postit-dot pink" data-color="pink" style="background:#F8BBD0"></div>
+                        <div class="postit-dot blue" data-color="blue" style="background:#BBDEFB"></div>
+                        <div class="postit-dot orange" data-color="orange" style="background:#FFE0B2"></div>
+                    </div>
+                    <div class="postit-modal-actions">
+                        <button class="postit-btn-cancel" id="postit-close">Annulla</button>
+                        <button class="postit-btn-save" id="postit-save">Salva</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Widget: Missione del giorno -->
-            <div class="widget" id="missione"></div>
+            <!-- Widget: Obiettivi (dati dall'altra scheda) -->
+            <div class="widget" id="obiettivi-widget"></div>
 
-            <!-- Widget: Immagine del giorno -->
+            <!-- Widget: Missione (dati dall'altra scheda) -->
+            <div class="widget" id="missione-widget"></div>
+
+            <!-- Widget: Immagine del giorno (dati dall'altra scheda) -->
             <div class="widget" id="immagine-del-giorno"></div>
+
         </div>
     </section>
 
@@ -113,9 +218,9 @@
     </section>
 
 
-
     <script src="app.js"></script>
-    <script src="postit.js"></script>
+    <script src="home/widget/postit/postit.js"></script>
+    <script src="home/widget/clock/count.js"></script>
 </body>
 </html>
 
