@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="home/widget/postit/postit.css">
     <link rel="stylesheet" href="home/widget/todo/todo.css">
     <link rel="stylesheet" href="home/widget/clock/count.css">
+    <link rel="stylesheet" href="obiet/obiet/obiet.css">
+
 </head>
 <body> 
 
@@ -65,7 +67,7 @@
                     <footer class="cd-footer">
                         <!-- Data target + label -->
                         <div class="cd-tempo">
-                            <span class="cd-tempo-tag">Tempo rimanente</span>
+                            <span class="cd-tempo-tag">Tempo rimanente </span>
                             <span class="cd-tempo-date" id="cd-subtitle"></span>
                         </div>
                         <!-- Switcher fuso orario -->
@@ -165,8 +167,38 @@
 
     <!-- Obiettivi -->
     <section class="slide-obiettivi" id="obiettivi">
-        <h2>Obiettivi</h2>
-        <p>Set and track your goals for the year abroad</p>
+        <div class="obiettivi-content">
+
+            <!-- Titolo -->
+            <h1 class="obiettivi-title">Obiettivi</h1>
+            <p>Set and track your goals for the year abroad</p>
+
+            <!-- Widget Inserimento Obiettivi -->
+
+                <div class="widget" id="widget-obiettivi">
+                    <div class="widget-header">
+                        <h1 class="widget-title">Obiettivi</h1>
+                        <div class="widget-counter"><span id="doneCount">0</span> / 5 completati</div>
+                    </div>
+
+                    <div class="obiettivi-list" id="list">
+                    <!-- generati da main.js -->
+                    </div>
+
+                    <div class="widget-footer">
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" id="progress"></div>
+                    </div>
+                    <div class="progress-label"><span id="pct">0</span>%</div>
+                    <button class="save-btn" id="saveBtn">Salva</button>
+                    </div>
+                </div>
+                <div class="toast" id="toast">Obiettivi salvati ✓</div>
+            <!-- Andamento obiettivi della settimana -->
+
+            <!-- Lista Obiettivi completa con aggiunta di filtro -->
+
+        </div>
     </section>
 
     <!-- Missioni -->
@@ -221,6 +253,7 @@
     <script src="app.js"></script>
     <script src="home/widget/postit/postit.js"></script>
     <script src="home/widget/clock/count.js"></script>
+    <script src="obiet/obiet/obiet.js"> </script>
 </body>
 </html>
 
