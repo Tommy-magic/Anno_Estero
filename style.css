@@ -482,6 +482,11 @@ section[class^="slide-"] p {
     color: var(--white);
 }
 
+/*impostare il paragrafo di widget-ob-other di colore blu*/
+.widget-ob-other p {
+    color: var(--azzurro);
+}
+
 
 
 

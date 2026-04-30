@@ -324,11 +324,32 @@ function updateCurrentDay() {
     el.textContent = formatted.charAt(0).toUpperCase() + formatted.slice(1);
 }
 
+// Dynamic week display
+function updateCurrentWeek() {
+    const el = document.getElementById('current-set');
+    if (!el) return;
+    
+    // Data inizio: 6 aprile 2026 = Settimana 1
+    const startDate = new Date(2026, 3, 6); // Mese 3 = Aprile (0-indexed)
+    const now = new Date();
+    
+    // Calcola i giorni passati
+    const timeDiff = now - startDate;
+    const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    
+    // Calcola il numero della settimana
+    const weekNumber = Math.floor(daysPassed / 7) + 1;
+    
+    el.textContent = `Settimana ${weekNumber}`;
+}
+
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     initializeSlides();
     initializeTodoList();
     updateCurrentDay();
+    updateCurrentWeek();
 });
 
 // Todo List Functionality

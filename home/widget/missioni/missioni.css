@@ -1,0 +1,430 @@
+/* Missioni Page & Widget Styles */
+
+/* ── Page content wrapper ── */
+.missioni-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 4.5rem;
+    padding-bottom: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* ── Page header ── */
+.ms-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 560px;
+    width: 100%;
+}
+
+.ms-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.4rem;
+}
+
+.ms-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+    padding-bottom: 1rem;
+}
+
+/* ── Week label ── */
+.ms-week-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+}
+
+/* ── Current section wrapper ── */
+.ms-current-section {
+    width: 100%;
+    max-width: 560px;
+    margin-bottom: 2rem;
+}
+
+/* ── State A: generate area ── */
+.ms-generate-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 2.5rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px dashed rgba(255, 255, 255, 0.45);
+    border-radius: 1.25rem;
+    backdrop-filter: blur(6px);
+}
+
+.ms-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ms-generate-btn {
+    padding: 0.75rem 2rem;
+    background: white;
+    color: #0e7fe8;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ms-generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+}
+
+.ms-generate-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── State B: 3 choices ── */
+.ms-choices {
+    width: 100%;
+}
+
+.ms-pick-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.ms-choices-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.ms-choice-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    padding: 1.1rem 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.ms-choice-card:hover {
+    border-color: #4facfe;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+}
+
+.ms-choice-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.ms-choice-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+.ms-choice-desc {
+    font-size: 0.83rem;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+.ms-choices-back {
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+.ms-back-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.ms-back-btn:hover {
+    color: white;
+}
+
+/* ── State C: active mission ── */
+.ms-active-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1.25rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.85rem;
+}
+
+.ms-active-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: white;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+}
+
+.ms-active-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+}
+
+.ms-active-desc {
+    font-size: 0.88rem;
+    color: #6b7280;
+    line-height: 1.45;
+    margin-bottom: 1.1rem;
+}
+
+/* Completion checkbox row */
+.ms-done-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.ms-done-checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2.5px solid #d1d5db;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ms-done-checkbox.done {
+    background: #10b981;
+    border-color: #10b981;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.ms-done-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ms-active-card.done-card {
+    opacity: 0.85;
+}
+
+.ms-active-card.done-card .ms-active-title {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.ms-change-btn {
+    display: block;
+    width: 100%;
+    padding: 0.55rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease;
+}
+
+.ms-change-btn:hover {
+    background: rgba(255, 255, 255, 0.32);
+}
+
+/* ── History section ── */
+.ms-history-section {
+    width: 100%;
+    max-width: 560px;
+}
+
+.ms-history-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.85rem;
+    text-align: left;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+}
+
+.ms-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.ms-history-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.85rem;
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.ms-history-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.ms-history-icon.done  { background: rgba(16, 185, 129, 0.25); }
+.ms-history-icon.miss  { background: rgba(255, 255, 255, 0.1); }
+
+.ms-history-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.ms-history-item-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ms-history-item-week {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 0.1rem;
+}
+
+.ms-history-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.ms-history-badge.done  { background: rgba(16, 185, 129, 0.3); color: #d1fae5; }
+.ms-history-badge.miss  { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+
+.ms-history-empty {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* ── Home widget ── */
+.ms-widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.ms-widget-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.ms-widget-link {
+    font-size: 0.8rem;
+    color: #4facfe;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ms-widget-empty {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.ms-widget-mission-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.3rem;
+}
+
+.ms-widget-mission-desc {
+    font-size: 0.82rem;
+    color: #6b7280;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+.ms-widget-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+}
+
+.ms-widget-status.done   { background: #d1fae5; color: #065f46; }
+.ms-widget-status.active { background: #dbeafe; color: #1d4ed8; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .ms-choices-grid {
+        gap: 0.65rem;
+    }
+}

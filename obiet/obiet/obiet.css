@@ -352,3 +352,8 @@ body::before {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+.andamento-obiettivi {
+  margin-bottom: 2rem;
+
+}

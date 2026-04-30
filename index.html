@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="home/widget/todo/todo.css">
     <link rel="stylesheet" href="home/widget/clock/count.css">
     <link rel="stylesheet" href="obiet/obiet/obiet.css">
-
+    <link rel="stylesheet" href="home/widget/missioni/missioni.css">
 </head>
 <body> 
 
@@ -154,7 +154,9 @@
             </div>
 
             <!-- Widget: Obiettivi (dati dall'altra scheda) -->
-            <div class="widget" id="obiettivi-widget"></div>
+            <div class="widget" id="obiettivi-widget">
+
+            </div>
 
             <!-- Widget: Missione (dati dall'altra scheda) -->
             <div class="widget" id="missione-widget"></div>
@@ -171,8 +173,9 @@
 
             <!-- Titolo -->
             <h1 class="obiettivi-title">Obiettivi</h1>
-            <p>Set and track your goals for the year abroad</p>
-
+            <!--da fare-->
+            <!-- Settimana a partire dalla data segnata nel js (aggiornato dinamicamente via JS) -->
+            <p class="obiet-set" id="current-set"></p>
             <!-- Widget Inserimento Obiettivi -->
 
                 <div class="widget" id="widget-obiettivi">
@@ -195,16 +198,78 @@
                 </div>
                 <div class="toast" id="toast">Obiettivi salvati ✓</div>
             <!-- Andamento obiettivi della settimana -->
+                <div class="widget" id="widget-andamento">
+                    <!-- visione linea percentuale obiettivi altro utente andamento obiettivi settimana -->
+                     <div class="widget-header">
+                        <h1 class="widget-title">Andamento Obiettivi utente x </h1>
+                    </div>
+                     <div class="widget-ob-other">
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" id="progress"></div>
+                        </div>
+                        <div class="progress-label"><span id="pct">0</span>%</div>
+                    </div class="widget-ob-other" id="widget-ob-other" > 
+                        <p style="color: var(--azzurro); "> 
+                            da inserire toggle per visionare obiettivi altro utente</p>
+                    </div>
+                </div>
 
             <!-- Lista Obiettivi completa con aggiunta di filtro -->
+             <div> 
+                <!-- div con tutti gli obiettivi ma con un filtro a tendina che li filtra -->
+                 
+             </div>
 
         </div>
     </section>
 
     <!-- Missioni -->
     <section class="slide-missioni" id="missioni">
-        <h2>Missioni</h2>
-        <p>Complete fun missions together to stay connected</p> 
+        <div class="missioni-content">
+
+            <!-- Header -->
+            <div class="ms-header">
+                <h2 class="ms-title">Missioni</h2>
+                <p class="ms-subtitle">Ogni settimana una nuova sfida da fare insieme.</p>
+                <p class="ms-week-label" id="ms-week-label"></p>
+            </div>
+
+            <!-- Missione corrente -->
+            <div class="ms-current-section" id="ms-current-section">
+
+                <!-- Stato A: nessuna missione → bottone genera -->
+                <div class="ms-generate-area" id="ms-generate-area">
+                    <p class="ms-cta-text">Nessuna missione per questa settimana!</p>
+                    <button class="ms-generate-btn" id="ms-generate-btn">🎲 Genera Missioni</button>
+                </div>
+
+                <!-- Stato B: 3 scelte -->
+                <div class="ms-choices" id="ms-choices" style="display:none">
+                    <p class="ms-pick-label">Scegli la tua missione:</p>
+                    <div class="ms-choices-grid" id="ms-choices-grid"></div>
+                    <div class="ms-choices-back">
+                        <button class="ms-back-btn" id="ms-back-btn">← Torna indietro</button>
+                    </div>
+                </div>
+
+                <!-- Stato C: missione attiva -->
+                <div id="ms-active" style="display:none">
+                    <div class="ms-active-card" id="ms-active-card"></div>
+                    <button class="ms-change-btn" id="ms-change-btn">↻ Genera nuova missione</button>
+                </div>
+
+            </div>
+
+            <!-- Storico missioni -->
+            <!-- <div class="widget" id="widget-ms"> -->
+                <div class="ms-history-section">
+                    <h3 class="ms-history-title">Storico Missioni</h3>
+                    <div class="ms-history-list" id="ms-history-list"></div>
+                    <div class="ms-history-empty" id="ms-history-empty" style="display:none">Nessuna missione in archivio ancora.</div>
+                </div>
+            <!-- </div> -->
+
+        </div>
     </section>
 
     <!-- Video -->
@@ -254,6 +319,7 @@
     <script src="home/widget/postit/postit.js"></script>
     <script src="home/widget/clock/count.js"></script>
     <script src="obiet/obiet/obiet.js"> </script>
+    <script src="home/widget/missioni/missioni.js"></script>
 </body>
 </html>
 
