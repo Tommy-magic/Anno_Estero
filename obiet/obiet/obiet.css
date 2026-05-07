@@ -357,3 +357,74 @@ body::before {
   margin-bottom: 2rem;
 
 }
+
+.user-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  outline: none;
+}
+
+.user-select:focus {
+  border-color: var(--border-active);
+}
+
+.filter-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: var(--border-active);
+}
+
+.lista-obiettivi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.lista-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+}
+
+.lista-num {
+  font-weight: 500;
+  color: var(--text-muted);
+  min-width: 24px;
+}
+
+.lista-text {
+  flex: 1;
+  color: var(--text);
+}
+
+.lista-text.done {
+  text-decoration: line-through;
+  color: var(--done-text);
+}
+
+.lista-status {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}

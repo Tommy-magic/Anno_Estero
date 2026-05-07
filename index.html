@@ -201,23 +201,35 @@
                 <div class="widget" id="widget-andamento">
                     <!-- visione linea percentuale obiettivi altro utente andamento obiettivi settimana -->
                      <div class="widget-header">
-                        <h1 class="widget-title">Andamento Obiettivi utente x </h1>
+                        <h1 class="widget-title">Andamento Obiettivi</h1>
+                        <select id="user-select" class="user-select">
+                            <option value="current">Utente corrente</option>
+                            <option value="user1">Utente 1</option>
+                            <option value="user2">Utente 2</option>
+                        </select>
                     </div>
                      <div class="widget-ob-other">
                         <div class="progress-bar-wrap">
-                            <div class="progress-bar" id="progress"></div>
+                            <div class="progress-bar" id="progress-andamento"></div>
                         </div>
-                        <div class="progress-label"><span id="pct">0</span>%</div>
-                    </div class="widget-ob-other" id="widget-ob-other" > 
-                        <p style="color: var(--azzurro); "> 
-                            da inserire toggle per visionare obiettivi altro utente</p>
+                        <div class="progress-label"><span id="pct-andamento">0</span>%</div>
+                    </div>
                     </div>
                 </div>
 
             <!-- Lista Obiettivi completa con aggiunta di filtro -->
-             <div> 
-                <!-- div con tutti gli obiettivi ma con un filtro a tendina che li filtra -->
-                 
+             <div class="widget" id="widget-lista">
+                <div class="widget-header">
+                    <h1 class="widget-title">Lista Obiettivi</h1>
+                    <select id="filter-select" class="filter-select">
+                        <option value="all">Tutti</option>
+                        <option value="done">Completati</option>
+                        <option value="open">Da fare</option>
+                    </select>
+                </div>
+                <div class="lista-obiettivi" id="lista-obiettivi">
+                    <!-- Gli obiettivi filtrati verranno inseriti qui dinamicamente -->
+                </div>
              </div>
 
         </div>
