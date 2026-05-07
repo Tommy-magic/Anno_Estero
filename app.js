@@ -7,7 +7,6 @@ hamburger.addEventListener('click', function() {
     document.body.classList.toggle('menu-open');
 });
 
-// Chiudi il menu quando clicchi su un link
 const menuLinks = menuList.querySelectorAll('a');
 menuLinks.forEach(link => {
     link.addEventListener('click', function() {
@@ -16,7 +15,6 @@ menuLinks.forEach(link => {
     });
 });
 
-// Chiudi il menu quando clicchi al di fuori
 document.addEventListener('click', function(event) {
     const isClickInsideMenu = menuList.contains(event.target);
     const isClickOnHamburger = hamburger.contains(event.target);
@@ -33,11 +31,10 @@ const countdownPopup = document.getElementById('countdown-popup');
 
 if (clockIcon && countdownPopup) {
     clockIcon.addEventListener('click', function(event) {
-        event.stopPropagation(); // Previene la chiusura immediata
+        event.stopPropagation();
         countdownPopup.style.display = countdownPopup.style.display === 'none' || countdownPopup.style.display === '' ? 'block' : 'none';
     });
 
-    // Chiudi il popup quando si clicca fuori
     document.addEventListener('click', function(event) {
         if (!countdownPopup.contains(event.target) && !clockIcon.contains(event.target)) {
             countdownPopup.style.display = 'none';
@@ -48,7 +45,6 @@ if (clockIcon && countdownPopup) {
 // Slide Navigation
 let currentSlide = 'home';
 
-// Initialize slides - show only home initially
 function initializeSlides() {
     const slides = document.querySelectorAll('section[class^="slide-"]');
     slides.forEach(slide => {
@@ -57,16 +53,12 @@ function initializeSlides() {
     document.getElementById('home').classList.add('active');
 }
 
-// Navigate to slide
 function navigateToSlide(targetId) {
     const currentSlideElement = document.getElementById(currentSlide);
     const targetSlideElement = document.getElementById(targetId);
     
     if (currentSlideElement && targetSlideElement) {
-        // Remove active class from current slide
         currentSlideElement.classList.remove('active');
-        
-        // Add active class to target slide after a brief delay for smooth transition
         setTimeout(() => {
             targetSlideElement.classList.add('active');
             currentSlide = targetId;
@@ -74,11 +66,10 @@ function navigateToSlide(targetId) {
     }
 }
 
-// Add click handlers to menu links for slide navigation
 menuLinks.forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1); // Remove the #
+        const targetId = this.getAttribute('href').substring(1);
         navigateToSlide(targetId);
     });
 });
@@ -101,21 +92,13 @@ function updateCurrentDay() {
 function updateCurrentWeek() {
     const el = document.getElementById('current-set');
     if (!el) return;
-    
-    // Data inizio: 6 aprile 2026 = Settimana 1
-    const startDate = new Date(2026, 3, 6); // Mese 3 = Aprile (0-indexed)
+    const startDate = new Date(2026, 3, 6);
     const now = new Date();
-    
-    // Calcola i giorni passati
     const timeDiff = now - startDate;
     const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    
-    // Calcola il numero della settimana
     const weekNumber = Math.floor(daysPassed / 7) + 1;
-    
     el.textContent = `Settimana ${weekNumber}`;
 }
-
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -129,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
 let tasks = [];
 let currentFilter = 'all';
 
-// Load tasks from localStorage
 function loadTasks() {
     const savedTasks = localStorage.getItem('annoEsteroTasks');
     if (savedTasks) {
@@ -137,18 +119,15 @@ function loadTasks() {
     }
 }
 
-// Save tasks to localStorage
 function saveTasks() {
     localStorage.setItem('annoEsteroTasks', JSON.stringify(tasks));
 }
 
-// Initialize todo list
 function initializeTodoList() {
     loadTasks();
     renderTasks();
     updateBadges();
     
-    // Add task button
     const addBtn = document.getElementById('add-btn');
     const newTaskInput = document.getElementById('new-task');
     
@@ -159,7 +138,8 @@ function initializeTodoList() {
         }
     });
     
-    // Filter buttons
+    document.getElementById('clear-completed').addEventListener('click', clearCompleted);
+    
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -169,7 +149,6 @@ function initializeTodoList() {
     });
 }
 
-// Add new task
 function addTask() {
     const input = document.getElementById('new-task');
     const text = input.value.trim();
@@ -190,7 +169,6 @@ function addTask() {
     }
 }
 
-// Toggle task completion
 function toggleTask(id) {
     const task = tasks.find(t => t.id === id);
     if (task) {
@@ -201,7 +179,6 @@ function toggleTask(id) {
     }
 }
 
-// Delete task
 function deleteTask(id) {
     tasks = tasks.filter(t => t.id !== id);
     saveTasks();
@@ -209,11 +186,16 @@ function deleteTask(id) {
     updateBadges();
 }
 
-// Set filter
+function clearCompleted() {
+    tasks = tasks.filter(t => !t.completed);
+    saveTasks();
+    renderTasks();
+    updateBadges();
+}
+
 function setFilter(filter) {
     currentFilter = filter;
     
-    // Update active button
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
@@ -222,7 +204,6 @@ function setFilter(filter) {
     renderTasks();
 }
 
-// Render tasks based on current filter
 function renderTasks() {
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
@@ -250,7 +231,6 @@ function renderTasks() {
     });
 }
 
-// Update badge counters
 function updateBadges() {
     const openCount = tasks.filter(t => !t.completed).length;
     const doneCount = tasks.filter(t => t.completed).length;

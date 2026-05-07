@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="home/widget/clock/count.css">
     <link rel="stylesheet" href="obiet/obiet/obiet.css">
     <link rel="stylesheet" href="home/widget/missioni/missioni.css">
+    <link rel="stylesheet" href="home/widget/video/video.css">
 </head>
 <body> 
 
@@ -286,8 +287,71 @@
 
     <!-- Video -->
     <section class="slide-video" id="video">
-        <h2>Video</h2>
-        <p>Share and watch videos together</p>
+        <div class="video-content">
+
+            <!-- Header -->
+            <div class="vd-page-header">
+                <h2 class="vd-page-title">Video</h2>
+                <p class="vd-page-subtitle">I vostri momenti in movimento.</p>
+            </div>
+
+            <!-- Widget: Galleria (Slideshow) -->
+            <div class="vd-widget">
+                <div class="vd-widget-label">Galleria</div>
+                <div style="position:relative">
+                    <div class="vd-slideshow-wrap" id="vd-slideshow-wrap">
+                        <div class="vd-slide-placeholder">
+                            <div class="vd-slide-play-icon">🎬</div>
+                            <span class="vd-slide-ph-title">Caricamento...</span>
+                        </div>
+                    </div>
+                    <button class="vd-arrow vd-arrow-prev" id="vd-arrow-prev" aria-label="Precedente">‹</button>
+                    <button class="vd-arrow vd-arrow-next" id="vd-arrow-next" aria-label="Successivo">›</button>
+                </div>
+                <div class="vd-dots" id="vd-dots"></div>
+            </div>
+
+            <!-- Widget: Aggiungi video -->
+            <div class="vd-widget">
+                <div class="vd-widget-label">Aggiungi video</div>
+                <div class="vd-add-area" id="vd-add-area" role="button" tabindex="0"
+                     aria-label="Aggiungi un video dalla tua galleria">
+                    <div class="vd-add-plus">+</div>
+                    <div class="vd-add-text">Aggiungi un video</div>
+                    <div class="vd-add-hint">Tocca per scegliere dalla tua galleria</div>
+                </div>
+                <div class="vd-local-preview">
+                    <div id="vd-local-list"></div>
+                </div>
+                <input type="file" id="vd-file-input" accept="video/*" multiple style="display:none">
+            </div>
+
+            <!-- Widget: Tutti i video -->
+            <div class="vd-widget">
+                <div class="vd-widget-label">Tutti i video</div>
+                <div class="vd-filter-row" id="vd-filter-row"></div>
+                <div class="vd-grid" id="vd-grid"></div>
+                <button class="vd-load-more" id="vd-load-more" style="display:none">Carica altri</button>
+            </div>
+
+            <!-- Widget: Video della settimana -->
+            <div class="vd-widget">
+                <div class="vd-widget-label">
+                    <span class="vd-weekly-badge">🏆 Video della settimana</span>
+                </div>
+                <div id="vd-weekly-container"></div>
+            </div>
+
+        </div>
+
+        <!-- Modal player -->
+        <div class="vd-player-overlay" id="vd-player-overlay">
+            <div class="vd-player-box">
+                <button class="vd-player-close" id="vd-player-close" aria-label="Chiudi">✕</button>
+                <div id="vd-player-content"></div>
+            </div>
+        </div>
+
     </section>
 
     <!-- Foto -->
@@ -331,7 +395,9 @@
     <script src="home/widget/postit/postit.js"></script>
     <script src="home/widget/clock/count.js"></script>
     <script src="obiet/obiet/obiet.js"> </script>
+    <script src="utils.js"></script>
     <script src="home/widget/missioni/missioni.js"></script>
+    <script src="home/widget/video/video.js"></script>
 </body>
 </html>
 
